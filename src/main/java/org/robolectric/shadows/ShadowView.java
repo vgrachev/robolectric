@@ -14,7 +14,6 @@ import android.view.TouchDelegate;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewParent;
-import android.view.animation.Animation;
 import java.io.PrintStream;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
@@ -24,6 +23,7 @@ import org.robolectric.annotation.Implementation;
 import org.robolectric.annotation.Implements;
 import org.robolectric.annotation.RealObject;
 import org.robolectric.internal.HiddenApi;
+import org.robolectric.res.ViewNode;
 
 import static org.robolectric.Robolectric.directlyOn;
 import static org.robolectric.Robolectric.shadowOf;
@@ -61,6 +61,7 @@ public class ShadowView {
   private float scaleY = 1.0f;
   private int hapticFeedbackPerformed = -1;
   private boolean onLayoutWasCalled;
+  private ViewNode sourceViewNode;
 
   public void __constructor__(Context context, AttributeSet attributeSet, int defStyle) {
     if (context == null) throw new NullPointerException("no context");
@@ -491,5 +492,9 @@ public class ShadowView {
 
   private View directly() {
     return directlyOn(realView, View.class);
+  }
+
+  public void setSourceViewNode(ViewNode sourceViewNode) {
+    this.sourceViewNode = sourceViewNode;
   }
 }
