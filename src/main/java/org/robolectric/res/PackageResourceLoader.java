@@ -42,6 +42,7 @@ public class PackageResourceLoader extends XResourceLoader {
     );
 
     documentLoader.load("layout", new OpaqueFileLoader(data, "layout"));
+    documentLoader.load("menu", new OpaqueFileLoader(data, "menu"));
     documentLoader.load("menu", new MenuLoader(menuData));
     documentLoader.load("drawable", new OpaqueFileLoader(data, "drawable"));
     documentLoader.load("anim", new OpaqueFileLoader(data, "anim"));

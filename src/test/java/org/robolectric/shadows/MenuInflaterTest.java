@@ -1,6 +1,7 @@
 package org.robolectric.shadows;
 
 import android.app.Application;
+import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import org.junit.Before;
@@ -14,7 +15,9 @@ import org.robolectric.tester.android.view.TestMenuItem;
 import org.robolectric.util.I18nException;
 
 import static org.fest.assertions.api.Assertions.assertThat;
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
 import static org.robolectric.Robolectric.shadowOf;
 
 @RunWith(TestRunners.WithDefaults.class)
@@ -28,7 +31,7 @@ public class MenuInflaterTest {
 
   @Test
   public void canRetrieveMenuListAndFindMenuItemById() {
-    TestMenu menu = new TestMenu(context);
+    Menu menu = new MenuBuilder(context);
     new MenuInflater(context).inflate(R.menu.test, menu);
 
     TestMenuItem testMenuItem = (TestMenuItem) menu.getItem(0);

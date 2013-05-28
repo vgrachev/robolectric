@@ -270,7 +270,6 @@ import org.robolectric.shadows.ShadowMatrix;
 import org.robolectric.shadows.ShadowMediaPlayer;
 import org.robolectric.shadows.ShadowMediaRecorder;
 import org.robolectric.shadows.ShadowMediaStore;
-import org.robolectric.shadows.ShadowMenuInflater;
 import org.robolectric.shadows.ShadowMergeCursor;
 import org.robolectric.shadows.ShadowMimeTypeMap;
 import org.robolectric.shadows.ShadowMotionEvent;
@@ -787,10 +786,6 @@ public class Robolectric {
 
   public static ShadowMediaRecorder shadowOf(MediaRecorder instance) {
     return (ShadowMediaRecorder) shadowOf_(instance);
-  }
-
-  public static ShadowMenuInflater shadowOf(MenuInflater instance) {
-    return (ShadowMenuInflater) shadowOf_(instance);
   }
 
   public static ShadowMergeCursor shadowOf(MergeCursor instance) {
